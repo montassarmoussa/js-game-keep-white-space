@@ -38,7 +38,7 @@ jobs:
                 REPO: ${{ github.repository }}
                 WEBHOOK: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                curl -H "Content-Type: application/jsnon" \
+                curl -H "Content-Type: application/json" \
                 -X POST \
                 -d "{\"content\": \"le Worflow a échoué sur $REPO\"}" \
                 "$WEBHOOK"
