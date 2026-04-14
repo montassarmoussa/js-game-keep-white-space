@@ -49,13 +49,15 @@ jobs:
                -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
 
-      - name: Notification Discord (échec)
+      - name: Notification Telegram (échec)
         if: failure()
-        uses: sarisia/actions-status-discord@v1
+        uses: appleboy/telegram-action@master
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          title: "❌ Workflow échoué"
-          description: |
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ❌ Workflow échoué
+
             👤 Auteur : ${{ github.actor }}
             🌿 Branche : ${{ github.ref_name }}
             💬 Commit : ${{ github.event.head_commit.message }}
