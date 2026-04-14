@@ -43,11 +43,6 @@ jobs:
               run: |
                 curl -H "Content-Type: application/json" \
                 -X POST \
-                -d "{\"content\": 
-                \"le Worflow a échoué sur $REPO n/
-                L'auteur du commit est : $ACTOR n/
-                La branche concernée est : $BRANCH n/
-                Le message du commit est : $COMMIT\" n/
-                Le lien vers le repository est : $URL n/"}" \
+                -d "{\"content\": \"le Worflow a échoué sur $REPO /n L'auteur du commit est : $ACTOR /n La branche concernée est : $BRANCH /n Le message du commit est : $COMMIT\" /nLe lien vers le repository est : $URL /n"}" \
                 "$WEBHOOK"
                 
