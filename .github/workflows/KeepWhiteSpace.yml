@@ -28,3 +28,6 @@ jobs:
 
             - name: Test des vunerabilité 
               run: npm audit && echo "Acune vunerabilité toute est ok ! 👌"
+
+            - name: Lancement du Eslint
+              run: npm run lint && echo "Verification du code effectué avec sucés ✅" || "ERROR le sang ❌"
