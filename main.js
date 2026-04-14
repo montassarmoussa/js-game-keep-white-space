@@ -602,6 +602,13 @@ class GameMap {
   }
 }
 
+function getTimeStr(dt){
+    let timeMs = `${Math.floor((dt % 1000) / 10)}0`.slice(0, 2);
+    let timeS = `0${Math.floor(dt / 1000) % 60}`.slice(-2);
+    let timeM = Math.floor(dt / 1000 / 60);
+    return `${timeM}:${timeS}.${timeMs}`;
+};
+
 class GameStatus {
   constructor(ctx) {
     this.ctx = ctx;
@@ -615,12 +622,7 @@ class GameStatus {
     this.levelUppedAt = null;
   }
 
-  getTimeStr(dt) {
-    let timeMs = `${Math.floor((dt % 1000) / 10)}0`.slice(0, 2);
-    let timeS = `0${Math.floor(dt / 1000) % 60}`.slice(-2);
-    let timeM = Math.floor(dt / 1000 / 60);
-    return `${timeM}:${timeS}.${timeMs}`;
-  }
+
 
   gameStart() {
     this.isGameStart = true;
@@ -651,7 +653,7 @@ class GameStatus {
 
   updateStatus() {
     let dt = now() - this.startTime;
-    this.clearTime = this.getTimeStr(dt);
+    this.clearTime = getTimeStr(dt);
 
     let whiteRatio = map.getWhiteRatio();
     this.whiteRatio = Math.round(whiteRatio * 10000) / 100;
@@ -913,4 +915,8 @@ function touchMove(e) {
 
 function touchEnd() {
   player.updateTargetRadian(null);
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { Vec, getTimeStr, Position };
 }

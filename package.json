@@ -1,0 +1,42 @@
+{
+
+  "scripts": {
+
+    "test": "jest",
+
+    "playwright": "@playwright/test",
+
+    "lint": "eslint ."
+
+  },
+
+  "jest": {
+
+    "testEnvironment": "jsdom"
+
+  },
+
+  "dependencies": {
+
+    "jest": "^30.3.0",
+
+    "jsdom": "^29.0.2"
+
+  },
+
+  "devDependencies": {
+
+    "@playwright/test": "^1.59.1",
+
+    "eslint": "^8.57.1",
+
+    "eslint-config-google": "^0.14.0",
+
+    "http-server": "^14.1.1",
+
+    "jest-environment-jsdom": "^30.3.0"
+
+  }
+
+}
+
