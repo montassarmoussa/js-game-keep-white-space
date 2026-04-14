@@ -36,10 +36,18 @@ jobs:
               env:
                 REPO: ${{ github.repository }}
                 WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-                URL: ${{ github.server_url }}
+                URL: ${{ github.event.commits[0].url }}
+                ACTOR: ${{ github.actor}}
+                BRANCH: ${{ github.ref }}
+                COMMIT: ${{ github.event.commits[0].message }}
               run: |
                 curl -H "Content-Type: application/json" \
                 -X POST \
-                -d "{\"content\": \"le Worflow a échoué sur $REPO, Le lien vers le repository est : $URL\"}" \
+                -d "{\"content\": 
+                \"le Worflow a échoué sur $REPO n/
+                L'auteur du commit est : $ACTOR n/
+                La branche concernée est : $BRANCH n/
+                Le message du commit est : $COMMIT\" n/
+                Le lien vers le repository est : $URL n/"}" \
                 "$WEBHOOK"
                 
