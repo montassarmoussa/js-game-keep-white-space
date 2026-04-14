@@ -34,8 +34,11 @@ jobs:
 
             - name: Notif Discord en cas d'erreur 
               if: failure()
+              env:
+                REPO: ${{ github.repository }}
+                WEBHOOK: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                curl -H "Content-Type: application/json" \
+                curl - H "Content-Type: application/jsnon" \
                 -X POST \
-                -d '{content: "Le Worflow a echouheyy ÉCHOUHEEEEYYYYYY sur ${{ github.repository }}"}' \
-                ${{ secrets.DISCORD_TOKEN }}
+                -d "{\"content\": \"le Worflow a échoué sur $REPO\"}" \
+                "$WEBHOOK"
