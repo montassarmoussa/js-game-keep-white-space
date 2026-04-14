@@ -40,6 +40,6 @@ jobs:
               run: |
                 curl -H "Content-Type: application/json" \
                 -X POST \
-                -d "{\"content\": \"le Worflow a échoué sur $REPO\, Le lien vers le repository est : $URL\"}" \
+                -d "{\"content\": \"le Worflow a échoué sur $REPO, Le lien vers le repository est : $URL\"}" \
                 "$WEBHOOK"
                 
