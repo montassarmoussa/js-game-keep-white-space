@@ -41,9 +41,10 @@ jobs:
           ACTOR: ${{ github.actor }}
           BRANCH: ${{ github.ref_name }}
           COMMIT: ${{ github.event.head_commit.message }}
+          IMAGE : "https://media1.tenor.com/m/Q0uNGRsz5cIAAAAC/keyboard-crasher-angry.gif"
         run: |
-          MESSAGE="🚒 Le workflow a échoué sur $REPO\n Auteur : $ACTOR\n Branche : $BRANCH\n Commit : $COMMIT\n $URL"
+          MESSAGE="🚒 Le workflow a échoué sur $REPO\n Auteur : $ACTOR\n Branche : $BRANCH\n Commit : $COMMIT\n $URL \n $IMAGE"
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "$(printf '{"content": "%s"}' "$MESSAGE")" \
+               -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
