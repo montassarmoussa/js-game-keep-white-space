@@ -41,10 +41,14 @@ jobs:
           ACTOR: ${{ github.actor }}
           BRANCH: ${{ github.ref_name }}
           COMMIT: ${{ github.event.head_commit.message }}
+          TELEGRAMAPI: ${{ secrets.TELEGRAM_API}}
+          TELEGRAMID: ${{ secrets.TELEGRAM_ID }}
           IMAGE : "https://tenor.com/fr/view/leopold-slikk-agk-angry-german-kid-norman-gif-22475066" 
         run: |
-          MESSAGE="🚒 Le workflow a échoué sur $REPO\n Auteur : $ACTOR\n Branche : $BRANCH\n Commit : $COMMIT\n $URL \n $IMAGE"
+          MESSAGE="🚒 Le workflow a échoué sur 🗄️ $REPO\n Auteur : 🗿 $ACTOR\n Branche : 🪾 $BRANCH\n Commit : 💬 $COMMIT\n $URL \n $IMAGE"
           curl -H "Content-Type: application/json" \
                -X POST \
                -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
+               "$TELEGRAMAPI"
+               "$TELEGRAMID"
