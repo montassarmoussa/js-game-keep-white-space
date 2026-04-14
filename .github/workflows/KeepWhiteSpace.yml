@@ -36,7 +36,7 @@ jobs:
               if: failure()
               env:
                 REPO: ${{ github.repository }}
-                WEBHOOK: ${{ secrets.GITHUB_TOKEN }}
+                WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
               run: |
                 curl -H "Content-Type: application/json" \
                 -X POST \
