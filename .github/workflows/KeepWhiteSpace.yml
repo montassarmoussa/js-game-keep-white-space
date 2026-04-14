@@ -1,48 +1,49 @@
 name: KeepWhiteSpace - Workflow (Moussa Montassar)
-on:                                                                                                              
-    push:         
-      branches:
-        - '**'
-    pull_request:
-      branches:
-        - master
-    workflow_dispatch:
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-    premier-job:
-        runs-on: ubuntu-latest
+  premier-job:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout 
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with: 
-                node-version: '24'
-                cache: npm
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
 
-            - name: Installation 
-              run: npm ci 
+      - name: Installation
+        run: npm ci
 
-            - name: Test des vunerabilité 
-              run: npm audit && echo "Acune vunerabilité toute est ok ! 👌"
+      - name: Test des vulnérabilités
+        run: npm audit && echo "Aucune vulnérabilité, tout est ok ! 👌"
 
-            - name: Lancement du Eslint
-              run: npm run lint && echo "Verification du code effectué avec sucés ✅"
+      - name: Lancement du ESLint
+        run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
-            - name: Notif Discord en cas d'erreur 
-              if: failure()
-              env:
-                REPO: ${{ github.repository }}
-                WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-                URL: ${{ github.event.commits[0].url }}
-                ACTOR: ${{ github.actor}}
-                BRANCH: ${{ github.ref }}
-                COMMIT: ${{ github.event.commits[0].message }}
-              run: |
-                curl -H "Content-Type: application/json" \
-                -X POST \
-                -d "{\"content\": \"le Worflow a échoué sur $REPO /n L'auteur du commit est : $ACTOR /n La branche concernée est : $BRANCH /n Le message du commit est : $COMMIT\" /nLe lien vers le repository est : $URL /n"}" \
-                "$WEBHOOK"
-                
+      - name: Notif Discord en cas d'erreur
+        if: failure()
+        env:
+          REPO: ${{ github.repository }}
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          URL: ${{ github.event.head_commit.url }}
+          ACTOR: ${{ github.actor }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT: ${{ github.event.head_commit.message }}
+        run: |
+          MESSAGE="🚒 Le workflow a échoué sur $REPO\n Auteur : $ACTOR\n Branche : $BRANCH\n Commit : $COMMIT\n $URL"
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "$(printf '{"content": "%s"}' "$MESSAGE")" \
+               "$WEBHOOK"
