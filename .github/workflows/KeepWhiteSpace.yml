@@ -49,17 +49,15 @@ jobs:
                -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
 
-      - name: Notif Telegram en cas d'erreur
+      - name: Notification Discord (échec)
         if: failure()
-        env:
-          REPO: ${{ github.repository }}
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_API }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_ID }}
-          URL: ${{ github.event.head_commit.url }}
-          ACTOR: ${{ github.actor }}
-          BRANCH: ${{ github.ref_name }}
-          COMMIT: ${{ github.event.head_commit.message }}
-        run: |
-          MESSAGE="🚒 Workflow échoué sur 🗄️ $REPO%0A🗿 Auteur : $ACTOR%0A🪾 Branche : $BRANCH%0A 💬 Commit : $COMMIT%0A🔗 $URL"
-          curl -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage?chat_id=$TELEGRAM_CHAT_ID&text=$MESSAGE"
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          title: "❌ Workflow échoué"
+          description: |
+            👤 Auteur : ${{ github.actor }}
+            🌿 Branche : ${{ github.ref_name }}
+            💬 Commit : ${{ github.event.head_commit.message }}
+            🔗 [Voir le commit](${{ github.event.head_commit.url }})
 
