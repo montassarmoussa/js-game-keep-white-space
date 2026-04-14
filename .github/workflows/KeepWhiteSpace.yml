@@ -30,4 +30,12 @@ jobs:
               run: npm audit && echo "Acune vunerabilité toute est ok ! 👌"
 
             - name: Lancement du Eslint
-              run: npm run lint && echo "Verification du code effectué avec sucés ✅" || "ERROR le sang ❌"
+              run: npm run lint && echo "Verification du code effectué avec sucés ✅"
+
+            - name: Notif Discord en cas d'erreur 
+              if: failure()
+              run: |
+                curl -H "Content-Type: application/json" \ 
+                -X POST \ 
+                -d '{content: "Le Worflow a echouheyy ÉCHOUHEEEEYYYYYY sur ${{ github.repository }}"}' \
+                ${{ secrets.DISCORD_TOKEN }}
