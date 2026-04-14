@@ -41,8 +41,6 @@ jobs:
           ACTOR: ${{ github.actor }}
           BRANCH: ${{ github.ref_name }}
           COMMIT: ${{ github.event.head_commit.message }}
-          TELEGRAMAPI: ${{ secrets.TELEGRAM_API}}
-          TELEGRAMID: ${{ secrets.TELEGRAM_ID }}
           IMAGE : "https://tenor.com/fr/view/leopold-slikk-agk-angry-german-kid-norman-gif-22475066" 
         run: |
           MESSAGE="🚒 Le workflow a échoué sur 🗄️ $REPO\n Auteur : 🗿 $ACTOR\n Branche : 🪾 $BRANCH\n Commit : 💬 $COMMIT\n $URL \n $IMAGE"
@@ -50,5 +48,18 @@ jobs:
                -X POST \
                -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
-               "$TELEGRAMAPI"
-               "$TELEGRAMID"
+
+      - name: Notif Telegram en cas d'erreur
+        if: failure()
+        env:
+          REPO: ${{ github.repository }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_API }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_ID }}
+          URL: ${{ github.event.head_commit.url }}
+          ACTOR: ${{ github.actor }}
+          BRANCH: ${{ github.ref_name }}
+          COMMIT: ${{ github.event.head_commit.message }}
+        run: |
+          MESSAGE="🚒 Workflow échoué sur 🗄️ $REPO%0A🗿 Auteur : $ACTOR%0A🪾 Branche : $BRANCH%0A 💬 Commit : $COMMIT%0A🔗 $URL"
+          curl -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage?chat_id=$TELEGRAM_CHAT_ID&text=$MESSAGE"
+
