@@ -35,7 +35,7 @@ jobs:
             - name: Notif Discord en cas d'erreur 
               if: failure()
               run: |
-                curl -H "Content-Type: application/json" \ 
-                -X POST \ 
+                curl -H "Content-Type: application/json" \
+                -X POST \
                 -d '{content: "Le Worflow a echouheyy ÉCHOUHEEEEYYYYYY sur ${{ github.repository }}"}' \
                 ${{ secrets.DISCORD_TOKEN }}
