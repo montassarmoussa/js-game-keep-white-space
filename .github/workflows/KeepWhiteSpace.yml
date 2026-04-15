@@ -19,22 +19,27 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
+        id: node
         uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
 
       - name: Installation
+        id: install
         run: npm ci
 
       - name: Test des vulnérabilités
+        id: audit
         run: npm audit && echo "Aucune vulnérabilité, tout est ok ! 👌"
 
       - name: Lancement du ESLint
+        id: lint
         run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
 
       - name: Notif Discord en cas d'erreur
+        id: discord
         if: failure()
         uses: appleboy/discord-action@v1.2.0
         with:
@@ -58,6 +63,7 @@ jobs:
             ${{ secrets.GIF }}
 
       - name: Notification Telegram en cas d'erreur
+        id: telegram
         if: failure()
         uses: appleboy/telegram-action@master
         with:
@@ -97,5 +103,13 @@ jobs:
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo ""
+            echo "## Résultats des étapes" >> $GITHUB_STEP_SUMMARY
             echo "- **checkout** : ${{ steps.checkout.outcome }}" >> $GITHUB_STEP_SUMMARY
-            <span style="color:red"> Text content </span>
+            echo "- **node** : ${{ steps.setup-node.outcome }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **install** : ${{ steps.install.outcome }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **audit** : ${{ steps.audit.outcome }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **lint** : ${{ steps.lint.outcome }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **discord** : ${{ steps.discord.outcome }}" >> ${GITHUB_STEP_SUMMARY}
+            echo "- **telegram** : ${{ steps.telegram.outcome }}" >> ${GITHUB_STEP_SUMMARY}
+
+            
