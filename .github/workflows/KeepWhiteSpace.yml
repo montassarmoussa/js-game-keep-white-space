@@ -83,13 +83,15 @@ jobs:
             
             echo "# 🕹️ Projet W@C - JeuxVideOPS" >> $GITHUB_STEP_SUMMARY
             echo "---" >> $GITHUB_STEP_SUMMARY
-            echo "## 𝔦 Informations sur le workflow" >> $GITHUB_STEP_SUMMARY
+            echo "## ℹ️ Informations sur le workflow" >> $GITHUB_STEP_SUMMARY
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Le Jeu utiliser pour les test est Keep White Space [GitHub](https://github.com/okzaq/js-game-keep-white-space)" >> $GITHUB_STEP_SUMMARY
+            echo "[Image ](https://upload.wikimedia.org/wikipedia/commons/4/43/Minimalist_info_Icon.png)" >> $GITHUB_STEP_SUMMARY
+            echo "Le Jeu utiliser pour le projet est Keep White Space [GitHub](https://github.com/okzaq/js-game-keep-white-space)" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "- **Repository** : ${{ github.repository }} [Voir le repository](${{ github.event.repository.html_url }})" >> $GITHUB_STEP_SUMMARY
             echo "- **Auteur** : ${{ github.actor }} [Voir l'auteur](${{ github.event.head_commit.author.html_url }})" >> $GITHUB_STEP_SUMMARY
             echo "- **Branche** : ${{ github.ref_name }} [Voir la branche](${{ github.event.pull_request.html_url }})" >> $GITHUB_STEP_SUMMARY
             echo "- **Commit** : ${{ github.event.head_commit.message }} [Voir le commit](${{ github.event.head_commit.url }})" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
+            echo "---" >> $GITHUB_STEP_SUMMARY
