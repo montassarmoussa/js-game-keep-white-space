@@ -39,7 +39,7 @@ jobs:
 
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          
+
           message: |
             🚒 Le workflow a échoué sur
 
@@ -52,6 +52,8 @@ jobs:
             💬 Commit : ${{ github.event.head_commit.message }}
 
             [Voir le commit](${{ github.event.head_commit.url }})
+
+            https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-79.gif
 
       - name: Notification Telegram en cas d'erreur
         if: failure()
