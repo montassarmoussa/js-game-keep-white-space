@@ -34,15 +34,20 @@ jobs:
 
       - name: Notif Discord en cas d'erreur
         if: failure()
-        uses: Ilshidur/action-discord@master
+        uses: tenzin1308/discord-notification@v1.0.0
         with:
           discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           message: |
             🚒 Le workflow a échoué sur
+
             🗄️ Repository : ${{ github.repository }}
+
             🗿 Auteur : ${{ github.actor }}
+
             🪾 Branche : ${{ github.ref_name }}
+
             💬 Commit : ${{ github.event.head_commit.message }}
+
             [Voir le commit](${{ github.event.head_commit.url }})
 
       - name: Notification Telegram en cas d'erreur
