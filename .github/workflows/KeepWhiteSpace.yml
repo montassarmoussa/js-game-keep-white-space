@@ -98,3 +98,4 @@ jobs:
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo ""
             echo "- **checkout** : ${{ steps.checkout.outcome }}" >> $GITHUB_STEP_SUMMARY
+            <span style="color:red"> Text content </span>
