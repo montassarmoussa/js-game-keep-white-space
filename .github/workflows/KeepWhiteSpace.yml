@@ -34,18 +34,18 @@ jobs:
 
       - name: Notif Discord en cas d'erreur
         if: failure()
-        uses: Ilshidur/action-discord@master
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          args: |
+        uses: appleboy/discord-action@v1.2.0
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          message: |
             🚒 Le workflow a échoué sur
-
+            
             🗄️ Repository : ${{ github.repository }}
-
+            
             🗿 Auteur : ${{ github.actor }}
-
+            
             🪾 Branche : ${{ github.ref_name }}
-
+            
             💬 Commit : ${{ github.event.head_commit.message }}
             
             [Voir le commit](${{ github.event.head_commit.url }})
