@@ -49,17 +49,22 @@ jobs:
                -d "$(printf '{"content": "%s", "image": "%s"}' "$MESSAGE" "$IMAGE")" \
                "$WEBHOOK"
 
-      - name: Notification Telegram (échec)
+
+
+
+      - name: Notification Telegram en cas d'erreur
         if: failure()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_API }}
           message: |
-            ❌ Workflow échoué
+            🚒 Le workflow a échoué sur
 
-            👤 Auteur : ${{ github.actor }}
-            🌿 Branche : ${{ github.ref_name }}
+            🗄️ Repository : ${{ github.repository }}
+            🗿 Auteur : ${{ github.actor }}
+            🪾 Branche : ${{ github.ref_name }}
             💬 Commit : ${{ github.event.head_commit.message }}
-            🔗 [Voir le commit](${{ github.event.head_commit.url }})
+            [Voir le commit](${{ github.event.head_commit.url }})
+            "https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-79.gif"
 
