@@ -86,7 +86,7 @@ jobs:
             echo "## 📊 Le workflow a bien été exécuté, voici les résultats : " >> $GITHUB_STEP_SUMMARY
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Le Jeu utiliser pour les test est *__https://github.com/okzaq/js-game-keep-white-space__*" >> $GITHUB_STEP_SUMMARY
+            echo "Le Jeu utiliser pour les test est Keep White Space [GitHub](https://github.com/okzaq/js-game-keep-white-space)" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "- **Repository** : ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
             echo "- **Auteur** : ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
