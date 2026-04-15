@@ -33,22 +33,6 @@ jobs:
         run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
 
-      - name: Store build timestamp
-        run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       - name: Notif Discord en cas d'erreur
         if: failure()
         uses: appleboy/discord-action@v1.2.0
@@ -91,3 +75,10 @@ jobs:
 
             [Voir le commit](${{ github.event.head_commit.url }})
 
+
+
+      - name: Retour des résultats
+        if: always()
+        run: |
+            echo "## Résultats du Workflow" >> $GITHUB_STEP_SUMMARY
+            echo "### Le workflow a bien été exécuté, voici les résultats : " >> $GITHUB_STEP_SUMMARY
