@@ -86,7 +86,7 @@ jobs:
             echo "## ℹ️ Informations sur le workflow" >> $GITHUB_STEP_SUMMARY
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "![Image](https://i.ibb.co/CNcSDcN/image-2.png)" >> $GITHUB_STEP_SUMMARY
+            echo "![Image](https://i.ibb.co/0jXQy0jT/soutien-2.png)" >> $GITHUB_STEP_SUMMARY
             echo "Le Jeu utiliser pour le projet est Keep White Space [GitHub](https://github.com/okzaq/js-game-keep-white-space)" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "- **Repository** : ${{ github.repository }} [Voir le repository](${{ github.event.repository.html_url }})" >> $GITHUB_STEP_SUMMARY
