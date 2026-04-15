@@ -80,5 +80,6 @@ jobs:
       - name: Retour des résultats
         if: always()
         run: |
+            ! [Image TOP](https://cdn-icons-png.flaticon.com/512/11501/11501754.png)
             echo "## Résultats du Workflow" >> $GITHUB_STEP_SUMMARY
             echo "### Le workflow a bien été exécuté, voici les résultats : " >> $GITHUB_STEP_SUMMARY
