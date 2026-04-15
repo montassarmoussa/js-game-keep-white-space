@@ -36,18 +36,23 @@ jobs:
         if: failure()
         uses: appleboy/discord-action@v1.2.0
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+
+          color: "#FF0000"
+          username: "LeGandBot"
           message: |
             🚒 Le workflow a échoué sur
-            
+
             🗄️ Repository : ${{ github.repository }}
-            
+
             🗿 Auteur : ${{ github.actor }}
-            
+
             🪾 Branche : ${{ github.ref_name }}
-            
+
             💬 Commit : ${{ github.event.head_commit.message }}
-            
+
             [Voir le commit](${{ github.event.head_commit.url }})
 
       - name: Notification Telegram en cas d'erreur
