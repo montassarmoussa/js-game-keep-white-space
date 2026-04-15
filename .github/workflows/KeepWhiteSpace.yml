@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   premier-job:
@@ -111,5 +110,9 @@ jobs:
             echo "- **lint** : ${{ steps.lint.outcome }}" >> $GITHUB_STEP_SUMMARY
             echo "- **discord** : ${{ steps.discord.outcome }}" >> ${GITHUB_STEP_SUMMARY}
             echo "- **telegram** : ${{ steps.telegram.outcome }}" >> ${GITHUB_STEP_SUMMARY}
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "---" >> $GITHUB_STEP_SUMMARY
+            echo ""
+            echo "## Les Fails" >> $GITHUB_STEP_SUMMARY
 
             
