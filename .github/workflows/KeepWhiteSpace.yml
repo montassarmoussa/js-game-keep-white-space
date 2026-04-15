@@ -114,5 +114,6 @@ jobs:
             echo "---" >> $GITHUB_STEP_SUMMARY
             echo ""
             echo "## Les Fails" >> $GITHUB_STEP_SUMMARY
+            echo "***_En cours d'application_***" >> $GITHUB_STEP_SUMMARY
 
             
