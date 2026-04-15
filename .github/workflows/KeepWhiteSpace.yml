@@ -66,5 +66,5 @@ jobs:
             🪾 Branche : ${{ github.ref_name }}
             💬 Commit : ${{ github.event.head_commit.message }}
             [Voir le commit](${{ github.event.head_commit.url }})
-            "https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-79.gif"
+            https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-79.gif
 
