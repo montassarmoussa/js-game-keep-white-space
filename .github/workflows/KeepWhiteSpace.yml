@@ -36,8 +36,8 @@ jobs:
         if: failure()
         uses: Ilshidur/action-discord@master
         env:
-          discord-webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          message: |
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          args: |
             🚒 Le workflow a échoué sur
 
             🗄️ Repository : ${{ github.repository }}
