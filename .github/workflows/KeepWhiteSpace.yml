@@ -53,7 +53,7 @@ jobs:
 
             [Voir le commit](${{ github.event.head_commit.url }})
 
-            https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-79.gif
+            ${{ secrets.GIF}}
 
       - name: Notification Telegram en cas d'erreur
         if: failure()
