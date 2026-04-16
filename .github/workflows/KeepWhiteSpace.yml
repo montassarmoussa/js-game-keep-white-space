@@ -23,17 +23,21 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+          working-directory: site
 
       - name: Installation
         id: install
+        working-directory: site
         run: npm ci
 
       - name: Test des vulnérabilités
         id: audit
+        working-directory: site
         run: npm audit && echo "Aucune vulnérabilité, tout est ok ! 👌"
 
       - name: Lancement du ESLint
         id: lint
+        working-directory: site
         continue-on-error: true 
         run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
