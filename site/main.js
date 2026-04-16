@@ -50,3 +50,13 @@ btnJouer.addEventListener('click', () => {
     iframe.src = '';
     document.body.style.overflow = 'auto';
   });
+
+const audio = document.getElementById('audio');
+  audio.src = "src/audio/DonkeyKongCountry.mp3";
+
+  function toggle() {
+    audio.paused ? audio.play() : audio.pause();
+  }                                                                                                      
+   
+  audio.addEventListener('play', () => playBtn.textContent = '⏸');                                       
+  audio.addEventListener('pause', () => playBtn.textContent = '▶');
