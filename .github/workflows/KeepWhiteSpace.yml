@@ -6,7 +6,7 @@ on:
       - '**'
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   premier-job:
@@ -131,7 +131,7 @@ jobs:
 
   deploy:
     needs: premier-job
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     permissions:
