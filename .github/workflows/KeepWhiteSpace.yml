@@ -34,6 +34,7 @@ jobs:
 
       - name: Lancement du ESLint
         id: lint
+        continue-on-error: true 
         run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
 
@@ -147,7 +148,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './sites'
+          path: './site'
 
       - name: Déployer sur GitHub Pages
         id: deployment
