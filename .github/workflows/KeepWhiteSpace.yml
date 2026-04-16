@@ -66,6 +66,31 @@ jobs:
 
             ${{ secrets.GIF }}
 
+
+      - name: Notif Discord en cas d'erreur
+        id: discordSucees
+        if: success()
+        uses: appleboy/discord-action@v1.2.0
+        with:
+
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+
+          message: |
+            👌 Le workflow a réussi sur
+
+            🗄️ Repository : ${{ github.repository }}
+
+            🗿 Auteur : ${{ github.actor }}
+
+            🪾 Branche : ${{ github.ref_name }}
+
+            💬 Commit : ${{ github.event.head_commit.message }}
+
+            [Voir le commit](${{ github.event.head_commit.url }})
+
+            ${{ secrets.GIF }}
+
       - name: Notification Telegram en cas d'erreur
         id: telegram
         if: failure()
@@ -86,10 +111,28 @@ jobs:
 
             [Voir le commit](${{ github.event.head_commit.url }})
 
+      - name: Notification Telegram en cas d'erreur
+        id: telegramSucees
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_ID }}
+          token: ${{ secrets.TELEGRAM_API }}
+          message: |
+             Le workflow a réussi sur
+
+            🗄️ Repository : ${{ github.repository }}
+
+            🗿 Auteur : ${{ github.actor }}
+
+            🪾 Branche : ${{ github.ref_name }}
+
+            💬 Commit : ${{ github.event.head_commit.message }}
+
+              [Voir le commit](${{ github.event.head_commit.url }})
+
 
   
-
-
 
       - name: Retour des résultats
         if: always()
