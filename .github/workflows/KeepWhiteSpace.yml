@@ -23,21 +23,21 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-          cache-dependency-path: site/package-lock.json  
+          cache-dependency-path: site/KeepWhiteSpace/package-lock.json  
 
       - name: Installation
         id: install
-        working-directory: site
+        working-directory: site/KeepWhiteSpace
         run: npm ci
 
       - name: Test des vulnérabilités
         id: audit
-        working-directory: site
+        working-directory: site/KeepWhiteSpace
         run: npm audit && echo "Aucune vulnérabilité, tout est ok ! 👌"
 
       - name: Lancement du ESLint
         id: lint
-        working-directory: site
+        working-directory: site/KeepWhiteSpace
         continue-on-error: true 
         run: npm run lint && echo "Vérification du code effectuée avec succès ✅"
 
