@@ -82,6 +82,9 @@ jobs:
             [Voir le commit](${{ github.event.head_commit.url }})
 
 
+  
+
+
 
       - name: Retour des résultats
         if: always()
@@ -117,5 +120,38 @@ jobs:
             echo "***_En cours d'application_***" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "![Image](https://cdn.pixabay.com/animation/2025/09/06/21/34/21-34-47-638_512.gif)" >> $GITHUB_STEP_SUMMARY
+
+
+
+
+  deploy:
+    needs: premier-job
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './sites'
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
 
             

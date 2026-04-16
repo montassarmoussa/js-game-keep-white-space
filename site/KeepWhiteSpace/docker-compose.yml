@@ -1,0 +1,5 @@
+services:
+  keep-white-space:
+    build: .
+    ports:
+      - "80:80"

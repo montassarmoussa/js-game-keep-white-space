@@ -1,4 +1,4 @@
-const {Vec, getTimeStr, Position} = require('../main.js');
+const {Vec, getTimeStr, Position} = require('../KeepWhiteSpace/main.js');
 
 
 test('new Vec(1, 2) returns{x: 1, y: 2}', () => {

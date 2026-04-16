@@ -1,0 +1,14 @@
+__test__
+.github
+e2e
+node_modules
+test-results
+.eslintignore
+.eslintrc.json
+.gitignore
+docker-compose.yml
+Dockerfile
+package-lock.json
+package.json
+playwright.config.js
+README.md
