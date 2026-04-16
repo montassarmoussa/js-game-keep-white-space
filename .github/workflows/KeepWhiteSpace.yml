@@ -152,7 +152,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './site/KeepWhiteSpace'
+          path: './site/'
 
       - name: Déployer sur GitHub Pages
         id: deployment
