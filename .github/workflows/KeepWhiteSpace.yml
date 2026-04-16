@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '24'
           cache: npm
-          working-directory: site
+          cache-dependency-path: site/package-lock.json  
 
       - name: Installation
         id: install
