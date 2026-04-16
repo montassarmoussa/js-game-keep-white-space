@@ -110,6 +110,7 @@ jobs:
 
             [Voir le commit](${{ github.event.head_commit.url }})
 
+
       - name: Notification Telegram en cas d'erreur
         id: telegramSucees
         if: success()
@@ -118,7 +119,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_API }}
           message: |
-             Le workflow a réussi sur
+            👌 Le workflow a réussi sur
 
             🗄️ Repository : ${{ github.repository }}
 
