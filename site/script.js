@@ -58,5 +58,5 @@ const audio = document.getElementById('audio');
     audio.paused ? audio.play() : audio.pause();
   }                                                                                                      
    
-  audio.addEventListener('play', () => playBtn.textContent = '⏸');                                       
-  audio.addEventListener('pause', () => playBtn.textContent = '▶');
+  audio.addEventListener('play', () => playBtn.textContent = '🎵');                                       
+  audio.addEventListener('pause', () => playBtn.textContent = '⏸️');
