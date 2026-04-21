@@ -74,8 +74,8 @@
                 </h1>
                 <div class="fontstyle2 text-[10px] sm:text-xs">
                     <ul class="space-y-3 sm:space-y-5 text-white/80">
-                        <li class="text-[11px] sm:text-[13px] uppercase text-black font-bold">Repo original : <a href="https://github.com/okzaq/js-game-keep-white-space" target="_blank"
-                                class="ml-2 px-2 py-1 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-white transition-all duration-300 text-[10px] sm:text-xs">ici</a>
+                        <li class="">Repo original : <a href="https://github.com/okzaq/js-game-keep-white-space" target="_blank"
+                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300">ici</a>
                         </li>
                         <li>Repo du fork : <a
                                 href="https://github.com/montassarmoussa/js-game-keep-white-space" target="_blank"
@@ -86,9 +86,7 @@
                                 class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300">ici</a>
                         </li>
                     </ul>
-                    <dialog class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-3xl p-6">
-                        <p class="text-lg fontstyle">Dialog content goes here.</p>
-                    </dialog>
+                    
 
                     <div id="btn-jouer"
                         class="flex items-center justify-center mt-10 bg-gray-600/30 hover:bg-gray-950/50 hover:text-white rounded-3xl transition-all duration-500 hover:-translate-y-2">
@@ -99,31 +97,29 @@
                 </div>
             </div>
             <div
-                class="flex flex-col bg-black/10 backdrop-blur-sm border border-white/10 rounded-3xl py-6 px-4 sm:py-10 sm:px-10 gap-4 animate-pulse cursor-not-allowed">
+                class="flex flex-col bg-black/10 backdrop-blur-sm border border-white/10 rounded-3xl py-6 px-4 sm:py-10 sm:px-10 gap-4 ">
                 <h1
-                    class="mb-3 sm:mb-5 text-center text-sm sm:text-[20px] fontstyle border bg-black/20 border-white/10 rounded-3xl px-1 py-2 sm:py-3 uppercase">
-                    a venir</h1>
+                    class="mb-3 sm:mb-5 text-center text-[10px] sm:text-[13px] fontstyle border bg-black/20 border-white/10 rounded-3xl px-1 py-2 sm:py-3">
+                   <span class="lettre2">T</span>wo <span class="lettre2">S</span>paceships</h1>
                 <div class="fontstyle2 text-[10px] sm:text-xs">
                     <ul class="space-y-3 sm:space-y-5 text-white/80">
-                        <li>Repo original : <a href="https://github.com/okzaq/js-game-keep-white-space" target="_blank"
-                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300 cursor-not-allowed">ici</a>
+                        <li>Repo original : <a href="https://github.com/razh/js13k-2021" target="_blank"
+                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300">ici</a>
                         </li>
                         <li>Repo du fork : <a
-                                href="https://github.com/montassarmoussa/js-game-keep-white-space" target="_blank"
-                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300 cursor-not-allowed">ici</a>
+                                href="https://github.com/aminestack77/Jeux_videops" target="_blank"
+                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300 ">ici</a>
                         </li>
-                        <li>Personne en charrge du fork : <a href="https://github.com/montassarmoussa"
+                        <li>Personne en charrge du fork : <a href="https://github.com/aminestack77"
                                 target="_blank"
-                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300 cursor-not-allowed">ici</a>
+                                class="px-2 py-1 sm:px-4 sm:py-2 bg-black/20 backdrop-blur-xl rounded-full border border-white hover:bg-white/50 hover:border-black/50 hover:text-black transition-all duration-300">ici</a>
                         </li>
                     </ul>
-                    <dialog class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-3xl p-6">
-                        <p class="text-lg fontstyle">Dialog content goes here.</p>
-                    </dialog>
+                
 
                     <div id="btn-jouer2"
                         class="flex items-center justify-center mt-10 bg-gray-600/30 hover:bg-gray-950/50 hover:text-white rounded-3xl transition-all duration-500 hover:-translate-y-2">
-                        <button class="px-3 py-3 cursor-not-allowed">Jouer Maintenant </button>
+                        <button id="btn-jouer2" class="px-3 py-3 cursor-pointer">Jouer Maintenant </button>
                     </div>
 
 
@@ -147,6 +143,18 @@
             </button>
 
             <iframe id="iframe-jeu" src="" class="w-full h-full border-none"></iframe>
+
+        </div>
+    </div>
+
+    <div id="modal-jeu2" class="fixed inset-0 bg-black/30 backdrop-blur-md hidden z-50 flex items-center justify-center p-2 sm:p-0">
+        <div class="relative w-[95vw] sm:w-[90vw] h-[80vh] sm:h-[85vh] bg-black/30 rounded-2xl sm:rounded-3xl overflow-hidden">
+
+            <button id="btn-fermer2" class="absolute top-2 right-3 sm:right-4 text-white text-2xl sm:text-3xl cursor-pointer z-10">
+                &times;
+            </button>
+
+            <iframe id="iframe-jeu2" src="" class="w-full h-full border-none"></iframe>
 
         </div>
     </div>

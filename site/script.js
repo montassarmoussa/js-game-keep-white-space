@@ -35,6 +35,12 @@ const btnJouer = document.getElementById('btn-jouer');
   const btnFermer = document.getElementById('btn-fermer');                                               
   const modal = document.getElementById('modal-jeu');
   const iframe = document.getElementById('iframe-jeu');
+
+
+  const btnJouer2 = document.getElementById('btn-jouer2');
+  const btnFermer2 = document.getElementById('btn-fermer2');
+  const modal2 = document.getElementById('modal-jeu2');
+  const iframe2 = document.getElementById('iframe-jeu2');
                                                                                                          
 btnJouer.addEventListener('click', () => {
     iframe.src = 'KeepWhiteSpace/index.html';
@@ -50,6 +56,24 @@ btnJouer.addEventListener('click', () => {
     iframe.src = '';
     document.body.style.overflow = 'auto';
   });
+
+btnJouer2.addEventListener('click', () => {
+    iframe2.src = 'https://aminestack77.github.io/Jeux_videops/';
+    modal2.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    iframe2.addEventListener('load', () => {
+      iframe2.focus();
+    });
+  });
+
+  btnFermer2.addEventListener('click', () => {
+    modal2.classList.add('hidden');
+    iframe2.src = '';
+    document.body.style.overflow = 'auto';
+  });  
+
+
+  
 
 const audio = document.getElementById('audio');
   audio.src = "src/audio/DonkeyKongCountry.mp3";
